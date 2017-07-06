@@ -8,7 +8,7 @@
 $error_msg = "";
 $success_msg = "";
 if (isset($_SESSION['username'])) {
-    header("Location: ../index44.php");
+    header("Location: ../index.php");
 }
 if (isset($_POST['submit'])) {
     if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
             $user = \Hudutech\Controller\UserController::getLoggedInUser($username);
             $_SESSION['userLevel'] = $user['userLevel'];
             $_SESSION['username'] = $username;
-            header("Location: ../index44.php");
+            header("Location: ../index.php");
 
         } elseif(isset($authenticated['error'])){
             $error_msg .= $authenticated['error'];

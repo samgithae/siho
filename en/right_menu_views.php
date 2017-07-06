@@ -149,10 +149,13 @@ if (isset($_SESSION['username'])) {
 
                 <li class="has-sub">
 
+
                     <a href="consultation.php">
                         <i class="fa fa-stethoscope" style="font-size: 1.8em;"></i>
                         <span class="title" style="font-size: 2em;"> Consultation</span>
                     </a>
+
+
 
                 </li>
 

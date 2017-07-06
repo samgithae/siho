@@ -5,7 +5,7 @@
  * Date: 06/05/2017
  * Time: 17:28
  */
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 $patients = \Hudutech\Controller\PatientController::all();
 $drugs = \Hudutech\Controller\DrugInventoryController::all();
 $visitors = \Hudutech\Controller\PatientVisitController::all();
@@ -29,26 +29,26 @@ endforeach;
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<?php
-include 'views/head.php';
-?>
-<link rel="stylesheet" href="public/assets/js/jvectormap/jquery-jvectormap-1.2.2.css">
-<link rel="stylesheet" href="public/assets/js/rickshaw/rickshaw.min.css">
+    <?php include 'head_views.php' ?>
+    <title>I-clinic</title>
 </head>
+
+
 <body class="page-body skin-facebook">
 
 <div class="page-container">
     <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 
     <?php
-    include 'views/right_menu.php';
+    include 'right_menu_views.php';
     ?>
 
 
     <div class="main-content">
 
-        <?php include 'views/header_menu.php' ?>
+        <?php include 'header_menu_views.php' ?>
 
         <hr/>
 
@@ -238,29 +238,29 @@ include 'views/head.php';
 <!--<!-- Demo Settings -->-->
 <!--<script src="public/assets/js/neon-demo.js"></script>-->
 
-<script src="public/assets/js/gsap/TweenMax.min.js"></script>
+<script src="../public/assets/js/gsap/TweenMax.min.js"></script>
 
-<script src="public/assets/js/jquery-3.2.0.slim.min.js"></script>
-<script src="public/assets/js/jquery-1.11.3.min.js"></script>
-<script src="public/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
-<script src="public/assets/js/bootstrap.js"></script>
-<script src="public/assets/js/joinable.js"></script>
-<script src="public/assets/js/resizeable.js"></script>
-<script src="public/assets/js/neon-api.js"></script>
-<script src="public/assets/js/neon-login.js"></script>
-<script src="public/assets/js/jquery-1.11.3.min.js"></script
+<script src="../public/assets/js/jquery-3.2.0.slim.min.js"></script>
+<script src="../public/assets/js/jquery-1.11.3.min.js"></script>
+<script src="../public/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="../public/assets/js/bootstrap.js"></script>
+<script src="../public/assets/js/joinable.js"></script>
+<script src="../public/assets/js/resizeable.js"></script>
+<script src="../public/assets/js/neon-api.js"></script>
+<script src="../public/assets/js/neon-login.js"></script>
+<script src="../public/assets/js/jquery-1.11.3.min.js"></script
         <!-- Imported scripts on this page -->
-<script src="public/assets/js/bootstrap-switch.min.js"></script>
-<script src="public/assets/js/neon-chat.js"></script>
-<script src="public/assets/js/paginator/jquery.paginate.min.js"></script>
+<script src="../public/assets/js/bootstrap-switch.min.js"></script>
+<script src="../public/assets/js/neon-chat.js"></script>
+<script src="../public/assets/js/paginator/jquery.paginate.min.js"></script>
 
 
 <!-- JavaScripts initializations and stuff -->
-<script src="public/assets/js/neon-custom.js"></script>
+<script src="../public/assets/js/neon-custom.js"></script>
 
 
 <!-- Demo Settings -->
-<script src="public/assets/js/neon-demo.js"></script>
+<script src="../public/assets/js/neon-demo.js"></script>
 
 
 </body>
