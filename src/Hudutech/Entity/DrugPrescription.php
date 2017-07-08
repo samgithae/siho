@@ -24,6 +24,26 @@ class DrugPrescription
      */
     private $patientId;
     /**
+     * @var integer
+     */
+    private $duration;
+
+    /**
+     * @return int
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param int $duration
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+    }
+    /**
      * @var string
      */
     private $drugName;
@@ -35,6 +55,7 @@ class DrugPrescription
      * @var float
      */
     private $quantity;
+
     /**
      * @var string
      */

@@ -44,5 +44,5 @@ interface SalesInterface
 
     public static function markPaidRegFee($patientId);
 
-    public static function createReceipt($patientId, $receiptNo);
+    public static function createReceipt($patientId, $receiptNo, $procedureFee);
 }

@@ -18,6 +18,7 @@ if(!empty($data)) {
         $clinical_notes->setComplaintHistory($data['complaintHistory']);
         $clinical_notes->setFamilySocialHistory($data['familySocialHistory']);
         $clinical_notes->setPhysicalExamination($data['physicalExamination']);
+        $clinical_notes->setDiagnosis($data['diagnosis']);
 
         $clinicalNotesCtrl= new \Hudutech\Controller\ClinicalNoteController();
         $created = $clinicalNotesCtrl->create($clinical_notes);

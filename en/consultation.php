@@ -98,12 +98,15 @@ $counter=1;
                         <!--                        body content will stop here-->
                     </div>
 
+
                 </div>
 
             </div>
         </div>
 <div id="clinicalNotesForms" class="col-md-12">
-        <div class="row">
+    <a class="btn btn-info" target="_blank" href="show_notes.php?id=<?php echo urlencode($queuePatient['id'] )?>">Show Patient History</a>
+
+    <div class="row">
             <div class="col-md-6">
 
                 <div class="panel panel-primary" data-collapsed="0">
@@ -244,6 +247,46 @@ $counter=1;
             </div>
         </div>
 
+<!--    added diagnosis-->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="panel panel-primary" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title col-md-offset-3">
+
+
+                        <h3>Diagnosis</h3>
+                    </div>
+
+
+                </div>
+
+                <div class="panel-body">
+
+                    <!--                   body content will start here-->
+                    <div class="form-group">
+
+
+                        <div class="col-sm-12">
+                                <textarea class="form-control autogrow" id="diagnosis"
+                                          name="familySocialHistory"
+                                          placeholder="Add patient Diagnosis"></textarea>
+                        </div>
+                    </div>
+
+
+                    <!--                        body content will stop here-->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 
         <div class="row">
             <div class="col-md-12">
@@ -336,6 +379,7 @@ $counter=1;
                 complaintHistory: $('#complaintHistory').val(),
                 familySocialHistory: $('#familySocialHistory').val(),
                 physicalExamination: $('#physicalExamination').val(),
+                diagnosis: $('#diagnosis').val()
             }
 
         }

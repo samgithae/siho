@@ -23,6 +23,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
         $drugType = $drugPrescription->getDrugType();
         $quantity = $drugPrescription->getQuantity();
         $prescription = $drugPrescription->getPrescription();
+        $duration = $drugPrescription->getDuration();
         $status = $drugPrescription->getStatus();
 
         try{
@@ -32,6 +33,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
                                                         drugType,
                                                         quantity,
                                                         prescription,
+                                                        duration,
                                                         status
                                                   ) 
                                                   VALUES
@@ -41,6 +43,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
                                                         :drugType,
                                                         :quantity,
                                                         :prescription,
+                                                        :duration,
                                                         :status
                                                   )";
 
@@ -50,6 +53,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
             $stmt->bindParam(":drugType",$drugType);
             $stmt->bindParam(":quantity", $quantity);
             $stmt->bindParam(":prescription", $prescription);
+            $stmt->bindParam(":duration", $duration);
             $stmt->bindParam(":status", $status);
             return $stmt->execute() ? true : false;
         } catch (\PDOException $exception) {
@@ -68,6 +72,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
         $drugType = $drugPrescription->getDrugType();
         $quantity = $drugPrescription->getQuantity();
         $prescription = $drugPrescription->getPrescription();
+        $duration = $drugPrescription->getDuration();
         $status = $drugPrescription->getStatus();
 
         try{
@@ -77,6 +82,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
                                                 drugType=:drugType,
                                                 quantity=:quantity,
                                                 prescription=:prescription,
+                                                duration=:duration,
                                                 status=:status
                                                 WHERE id=:id
                                                   ";
@@ -87,6 +93,7 @@ class DrugPrescriptionController implements DrugPrescriptionInterface
             $stmt->bindParam(":drugType",$drugType);
             $stmt->bindParam(":quantity", $quantity);
             $stmt->bindParam(":prescription", $prescription);
+            $stmt->bindParam(":duration", $duration);
             $stmt->bindParam(":status", $status);
             return $stmt->execute() ? true : false;
         } catch (\PDOException $exception) {

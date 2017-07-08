@@ -5,7 +5,7 @@ error_reporting(0);
  * Created by PhpStorm.
  * User: hudutech
  * Date: 5/8/17
-Prescribed23 PM
+ Prescribed23 PM
  */
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -68,10 +68,10 @@ $patientBill = \Hudutech\Controller\SalesController::getPatientBill($_SESSION['p
     <div class="main-content">
         <?php include 'header_menu_views.php' ?>
         <div class="row">
-            <!--            <div class="col col-md-12" style="margin-bottom: 15px;">-->
-            <!--                <button class="btn btn-default" id="btnOverCounter" onclick="overCounter()"> Click Here To Sell Drugs Over the counter</button>-->
-            <!--            </div>-->
-            <!--        <hr/>-->
+<!--            <div class="col col-md-12" style="margin-bottom: 15px;">-->
+<!--                <button class="btn btn-default" id="btnOverCounter" onclick="overCounter()"> Click Here To Sell Drugs Over the counter</button>-->
+<!--            </div>-->
+<!--        <hr/>-->
             <div class="col col-md-12" id="patientInfo">
                 <div class="panel panel-primary" data-collapsed="0">
                     <div class="container-fluid">
@@ -180,215 +180,56 @@ $patientBill = \Hudutech\Controller\SalesController::getPatientBill($_SESSION['p
             </div>
         </div>
 
-        <?php if(sizeof($prescriptionSize) > 0){?>
-            <div id="sellDrug" class="col-md-12">
+<?php if(sizeof($prescriptionSize) > 0){?>
+        <div id="sellDrug" class="col-md-12">
 
-                <div class="row">
-                    <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
 
-                        <div class="panel panel-primary" data-collapsed="0">
+                    <div class="panel panel-primary" data-collapsed="0">
 
-                            <div class="panel-heading">
-                                <div class="panel-title col-md-offset-3">
-                                    <h3>Sell Drug</h3>
-                                </div>
-
-
+                        <div class="panel-heading">
+                            <div class="panel-title col-md-offset-3">
+                                <h3>Sell Drug</h3>
                             </div>
 
-                            <div class="panel-body">
-
-                                <!--                   body content will start here-->
-
-                                <div id="feedback"></div>
-
-                                <form name="cartForm" id="cartForm">
-
-                                    <div class="form-group  col-md-5" style="padding: 5px; margin: 5px;">
-                                        <label for="drug" style="padding-left: 10px;"
-                                               class="control-label">Select Drug</label>
-
-                                        <select class="form-control" name="drug" id="drug" data-width="auto">
-                                            <?php foreach ($drugs as $drug): ?>
-                                                <option value="<?php echo $drug['id'] ?>"><?php echo $drug['productName'] . " |QtyLeft[" . $drug['qtyInStock'] . "]"; ?></option>
-                                            <?php endforeach; ?>
-
-                                        </select>
-
-
-                                    </div>
-
-                                    <div class="form-group  col-md-3" style="padding: 5px; margin: 5px;">
-                                        <label for="supplier" style="padding-left: 10px;"
-                                               class="control-label">Quantity</label>
-
-                                        <input type="number" class="form-control" name="qty" id="qty"
-                                               placeholder="Quantity">
-
-
-                                    </div>
-                                </form>
-                                <div class="form-group col-md-2" style="padding-top: 30px;">
-                                    <button class="btn btn-success btn-green btn-md " id="addCart">Add to Cart</button>
-                                </div>
-
-                            </div>
 
                         </div>
 
-                    </div>
+                        <div class="panel-body">
 
-                </div>
+                            <!--                   body content will start here-->
 
-                <div class="row">
-                    <div class="col-md-6">
+                            <div id="feedback"></div>
 
-                        <div class="panel panel-primary" data-collapsed="0">
+                            <form name="cartForm" id="cartForm">
 
-                            <div class="panel-heading">
-                                <div class="panel-title col-md-offset-3">
+                                <div class="form-group  col-md-5" style="padding: 5px; margin: 5px;">
+                                    <label for="drug" style="padding-left: 10px;"
+                                           class="control-label">Select Drug</label>
 
-
-                                </div>
-
-
-                            </div>
-
-                            <div class="panel-body">
-
-                                <!--                   body content will start here-->
-
-
-                                <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
-                                    <ul class="list-group">
-                                        <li class="list-group-item" style="font-size: 1.2em; font-weight: bold;">Registration Fee Ksh: <?php echo isset($patientBill['regFee']) ? $patientBill['regFee'].".00" : 0.00 ?></li>
-                                        <li class="list-group-item" style="font-size: 1.2em; font-weight: bold;">Consultation Fee Ksh: <?php echo isset($patientBill['consultationFee']) ? $patientBill['consultationFee']. ".00" : 0.00?></li>
-                                        <li class="list-group-item" style="font-size: 1.2em; font-weight: bold;">Clinical Test Fee Ksh: <?php echo isset($patientBill['testCost']) ? $patientBill['testCost']. ".00" : 0.00?></li>
-                                    </ul>
-                                </div>
-
-                                <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
-                                    <label for="amountPaid" style="padding-left: 10px;"
-                                           class="control-label">Procedure Fees</label>
-
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon btn-success">KSH</span>
-                                        <input type="text" class="form-control" id="procedureFee" onkeyup="addProcedureFee()">
-                                        <span class="input-group-addon btn-success">.00</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
-
-                                    <label for="total" style="padding-left: 10px;"
-                                           class="control-label">Total</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon btn-success">KSH</span>
-                                        <input type="text" class="form-control" value="<?php echo $patientBill['totalCost']+$cartTotal ?>" id="total"
-                                               disabled>
-                                        <input type="hidden" class="form-control" value="<?php echo $patientBill['totalCost']+$cartTotal ?>" id="total2"
-                                               disabled>
-                                        <span class="input-group-addon btn-success">.00</span>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
-                                    <label for="amountPaid" style="padding-left: 10px;"
-                                           class="control-label">Amount Paid</label>
-
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon btn-success">KSH</span>
-                                        <input type="text" class="form-control" id="amtPaid" onkeyup="calculateBal()">
-                                        <span class="input-group-addon btn-success">.00</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
-                                    <label for="amountDue" style="padding-left: 10px;"
-                                           class="control-label">Balance</label>
-
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon btn-success">KSH</span>
-                                        <input type="text" class="form-control" id="balance" disabled>
-                                        <span class="input-group-addon btn-success">.00</span>
-                                    </div>
-
-                                </div>
-                                <div class="form-group col-md-8 col-md-offset-3">
-                                    <button type="button" onclick="cartCheckout()" value="Check Out" id="checkOut"
-                                            class="btn btn-green btn-lg control-label">Checkout
-                                    </button>
-
-                                </div>
-                                <div>
-                                </div>
-
-
-                                <!--                        body content will stop here-->
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <div class="panel panel-primary" data-collapsed="0">
-
-                            <div class="panel-heading">
-                                <div class="panel-title col-md-offset-3">
-
-
-                                    <h3>Cart (Ksh <?php echo $cartTotal ?>.00)</h3>
-                                </div>
-
-
-                            </div>
-
-                            <div class="panel-body">
-
-                                <!--                   body content will start here-->
-
-
-                                <div class="table-responsive">
-
-                                    <table class="table table-stripped" id="cartTable">
-                                        <thead>
-                                        <tr class="bg-success">
-                                            <th>#</th>
-                                            <th>Drug Name</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th colspan="1">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php foreach ($cart as $cartItem): ?>
-                                            <tr>
-                                                <td><?php echo $cartCounter++ ?></td>
-                                                <td><?php echo $cartItem['productName'] ?></td>
-                                                <td><?php echo $cartItem['qty'] ?></td>
-                                                <td><?php echo $cartItem['price'] ?></td>
-                                                <td>
-                                                    <button class="btn btn-xs btn-danger btn-blue"
-                                                            onclick=" removeFromCart('<?php echo $cartItem['id'] ?>')"><i
-                                                                class="entypo-cancel"></i>Remove
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                    <select class="form-control" name="drug" id="drug" data-width="auto">
+                                        <?php foreach ($drugs as $drug): ?>
+                                            <option value="<?php echo $drug['id'] ?>"><?php echo $drug['productName'] . " |QtyLeft[" . $drug['qtyInStock'] . "]"; ?></option>
                                         <?php endforeach; ?>
-                                        </tbody>
+
+                                    </select>
 
 
-                                    </table>
                                 </div>
 
+                                <div class="form-group  col-md-3" style="padding: 5px; margin: 5px;">
+                                    <label for="supplier" style="padding-left: 10px;"
+                                           class="control-label">Quantity</label>
+
+                                    <input type="number" class="form-control" name="qty" id="qty"
+                                           placeholder="Quantity">
+
+
+                                </div>
+                            </form>
+                            <div class="form-group col-md-2" style="padding-top: 30px;">
+                                <button class="btn btn-success btn-green btn-md " id="addCart">Add to Cart</button>
                             </div>
 
                         </div>
@@ -398,9 +239,167 @@ $patientBill = \Hudutech\Controller\SalesController::getPatientBill($_SESSION['p
                 </div>
 
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="panel panel-primary" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title col-md-offset-3">
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="panel-body">
+
+                            <!--                   body content will start here-->
+
+
+                            <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="font-size: 1.2em; font-weight: bold;">Registration Fee Ksh: <?php echo isset($patientBill['regFee']) ? $patientBill['regFee'].".00" : 0.00 ?></li>
+                                    <li class="list-group-item" style="font-size: 1.2em; font-weight: bold;">Consultation Fee Ksh: <?php echo isset($patientBill['consultationFee']) ? $patientBill['consultationFee']. ".00" : 0.00?></li>
+                                    <li class="list-group-item" style="font-size: 1.2em; font-weight: bold;">Clinical Test Fee Ksh: <?php echo isset($patientBill['testCost']) ? $patientBill['testCost']. ".00" : 0.00?></li>
+                                </ul>
+
+
+
+
+</div>
+                            <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
+                                <label for="amountPaid" style="padding-left: 10px;"
+                                       class="control-label">Procedure Fee</label>
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon btn-success">KSH</span>
+                                    <input type="text" class="form-control" id="procedureFee" onkeyup="addProcedureFee()">
+                                    <span class="input-group-addon btn-success">.00</span>
+                                </div>
+
+                            </div>
+                            <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
+                                <label for="total" style="padding-left: 10px;"
+                                       class="control-label">Total</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon btn-success">KSH</span>
+                                    <input type="text" class="form-control" value="<?php echo $patientBill['totalCost']+$cartTotal ?>" id="total"
+                                           disabled>
+                                    <span class="input-group-addon btn-success">.00</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
+                                <label for="amountPaid" style="padding-left: 10px;"
+                                       class="control-label">Amount Paid</label>
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon btn-success">KSH</span>
+                                    <input type="text" class="form-control" id="amtPaid" onkeyup="calculateBal()">
+                                    <span class="input-group-addon btn-success">.00</span>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group  col-md-8" style="padding: 5px; margin: 5px;">
+                                <label for="amountDue" style="padding-left: 10px;"
+                                       class="control-label">Balance</label>
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon btn-success">KSH</span>
+                                    <input type="text" class="form-control" id="balance" disabled>
+                                    <span class="input-group-addon btn-success">.00</span>
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-8 col-md-offset-3">
+                                <button type="button" onclick="cartCheckout()" value="Check Out" id="checkOut"
+                                        class="btn btn-green btn-lg control-label">Checkout
+                                </button>
+
+                            </div>
+                            <div>
+                            </div>
+
+
+                            <!--                        body content will stop here-->
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="panel panel-primary" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title col-md-offset-3">
+
+
+                                <h3>Cart (Ksh <?php echo $cartTotal ?>.00)</h3>
+                            </div>
+
+
+                        </div>
+
+                        <div class="panel-body">
+
+                            <!--                   body content will start here-->
+
+
+                            <div class="table-responsive">
+
+                                <table class="table table-stripped" id="cartTable">
+                                    <thead>
+                                    <tr class="bg-success">
+                                        <th>#</th>
+                                        <th>Drug Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th colspan="1">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($cart as $cartItem): ?>
+                                        <tr>
+                                            <td><?php echo $cartCounter++ ?></td>
+                                            <td><?php echo $cartItem['productName'] ?></td>
+                                            <td><?php echo $cartItem['qty'] ?></td>
+                                            <td><?php echo $cartItem['price'] ?></td>
+                                            <td>
+                                                <button class="btn btn-xs btn-danger btn-blue"
+                                                        onclick=" removeFromCart('<?php echo $cartItem['id'] ?>')"><i
+                                                            class="entypo-cancel"></i>Remove
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
         <?php } else{
-            echo "<div class='alert alert-info'><i class='entypo-info' style='font-size: 1.4em;'></i>No Drug Prescriptions FOR Specified Patient. (<span style='color: red'>Cannot Make Drug Sale For Non Prescribed Patients</span>). </div>";
-        }
+    echo "<div class='alert alert-info'><i class='entypo-info' style='font-size: 1.4em;'></i>No Drug Prescriptions FOR Specified Patient. (<span style='color: red'>Cannot Make Drug Sale For Non Prescribed Patients</span>). </div>";
+}
         ?>
     </div>
 </div>
@@ -565,6 +564,7 @@ $patientBill = \Hudutech\Controller\SalesController::getPatientBill($_SESSION['p
 
     function cartCheckout() {
         var url = 'checkout.php';
+
         var totalCost = '<?php echo $cartTotal ?>';
         console.log({cost: totalCost});
         $.ajax(
@@ -639,28 +639,24 @@ $patientBill = \Hudutech\Controller\SalesController::getPatientBill($_SESSION['p
             $('#balance').val(bal);
             $('#checkOut').show();
         }else{
-            $('#balance').val(bal)
+            $('#balance').val(bal);
             $('#checkOut').hide();
         }
 
-    }
+        function addProcedureFee() {
+            var cartTotal = parseFloat($('#total').val());
+            var procedureFee = parseFloat($('#procedureFee').val());
 
-    function addProcedureFee() {
-        var cartTotal = parseFloat($('#total2').val());
-        var procedureFee = parseFloat($('#procedureFee').val());
-
-         newTotal = cartTotal + procedureFee;
-
-
-        if (newTotal >cartTotal){
-            $('#total').val(newTotal);
-
-        }else{
-         $('#total').val(cartTotal);
+            var bal = cartTotal + procedureFee;
+            if (bal <=0){
+                $('#balance').val(bal);
+                $('#checkOut').show();
+            }else{
+                $('#balance').val(bal);
+                $('#checkOut').hide();
+            }
 
         }
-
-    }
 </script>
 </body>
 </html>

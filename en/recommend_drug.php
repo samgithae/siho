@@ -112,7 +112,7 @@ $counter = 1;
 
                                     <input type="hidden" id="patientNoHidden"
                                            value="<?php echo $patientId; ?>">
-                                    <div class="form-group col-xs-3 col-md-3" style="padding: 5px; margin: 5px;">
+                                    <div class="form-group col-md-3 col-md-3" style="padding: 5px; margin: 5px;">
                                         <label for="drugName" style="padding-left: 10px;" class="control-label">Drug
                                             Name</label>
 
@@ -121,7 +121,7 @@ $counter = 1;
                                                placeholder="Drug Name">
 
                                     </div>
-                                    <div class="form-group col-xs-2 col-md-2" style="padding: 5px; margin: 5px;">
+                                    <div class="form-group col-md-2 col-md-2" style="padding: 5px; margin: 5px;">
                                         <label for="type" style="padding-left: 10px;" class="control-label">Administration
                                             Type</label>
 
@@ -139,7 +139,7 @@ $counter = 1;
                                             <option>Buccal</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-xs-1 col-md-1" style="padding: 5px; margin: 5px;">
+                                    <div class="form-group col-md-1 col-md-1" style="padding: 5px; margin: 5px;">
                                         <label for="dosage" style="padding-left: 10px;"
                                                class="control-label">Dosage</label>
 
@@ -148,7 +148,7 @@ $counter = 1;
                                                placeholder="Dosage">
 
                                     </div>
-                                    <div class="form-group col-xs-3 col-md-3"
+                                    <div class="form-group col-md-3 col-md-3"
                                          style=" display:table;padding: 5px; margin: 5px;">
                                         <label for="prescription1" style=" width:100%; padding-right: 50%"
                                                class="control-label">Drug Prescription</label>
@@ -171,7 +171,7 @@ $counter = 1;
                                                class="control-label form-horizontal col-md-1">*</label>
 
 
-                                        <select style="width:65px; margin-left: 10px;" id="prescription3"
+                                        <select style="width:60px; margin-left: 10px;" id="prescription3"
                                                 class="form-control form-horizontal col-md-1">
                                             <option>1</option>
                                             <option>2</option>
@@ -187,7 +187,17 @@ $counter = 1;
 
                                     </div>
 
-                                    <div class="form-group col-xs-1 col-md-1" style="margin-top:30px; ">
+                                    <div class="form-group col-md-1 " style="padding: 5px;margin: 5px;">
+                                        <label for="dosage" style="padding-left: 1px;"
+                                               class="control-label">Duration</label>
+
+
+                                        <input type="number" class="form-control" name="duration" id="duration"
+                                               placeholder="in days">
+
+                                    </div>
+
+                                    <div class="form-group col-md-1 col-md-1" style="margin-top:30px; ">
                                         <!--    buttons-->
 
                                         <input value="Add" id="add" onclick="submitFormData()"
@@ -237,10 +247,10 @@ $counter = 1;
 
 
                                 <div class="col-md-10">
-
+                                    <div class="table-responsive">
                                     <h4>Prescription Details</h4>
 
-                                    <table class="table table-condensed table-bordered " id="queueTable">
+                                    <table class="table  table-condensed table-bordered " id="queueTable">
                                         <thead>
                                         <tr>
 
@@ -249,6 +259,7 @@ $counter = 1;
                                             <th>Drug Type</th>
                                             <th>Quantity</th>
                                             <th>Prescription</th>
+                                            <th>Duration</th>
 <!--                                            <th>Action</th>-->
 
                                         </tr>
@@ -263,6 +274,7 @@ $counter = 1;
                                                 <td><?php echo $recommendedDrug['drugType'] ?></td>
                                                 <td><?php echo $recommendedDrug['quantity'] ?></td>
                                                 <td><?php echo $recommendedDrug['prescription'] ?></td>
+                                                <td><?php echo $recommendedDrug['duration'] ?></td>
 <!--                                                <td><a href="delete_presc.php?id=--><?php //echo $recommendedDrug['id'];?><!--" class="btn-link" style="color: red;">Delete Link</a> </td>-->
                                             </tr>
                                         <?php endforeach; ?>
@@ -270,7 +282,7 @@ $counter = 1;
 
                                         </tbody>
                                     </table>
-
+                                    </div>
                                 </div>
 
                             </form>
@@ -330,9 +342,11 @@ $counter = 1;
             drugName: $("#drugName").val(),
             drugType: $("#drugType").val(),
             quantity: $("#quantity").val(),
+
             prescription1: $("#prescription1").val(),
 
-            prescription3: $("#prescription3").val()
+            prescription3: $("#prescription3").val(),
+            duration: $("#duration").val()
 
         }
 

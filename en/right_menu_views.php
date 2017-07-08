@@ -199,6 +199,18 @@ if (isset($_SESSION['username'])) {
 
                 </li>
 
+                <li class="has-sub">
+
+
+                    <a href="logout.php">
+                        <i class="fa fa-sign-out" style="font-size: 1.8em;"></i>
+                        <span class="title" style="font-size: 2em;"> Logout</span>
+                    </a>
+
+
+
+                </li>
+
             </ul>
         <?php }?>
         <?php function receptionist(){?>
@@ -245,6 +257,8 @@ if (isset($_SESSION['username'])) {
                         </li>
 
 
+
+
                     </ul>
                 </li>
 
@@ -257,7 +271,17 @@ if (isset($_SESSION['username'])) {
 
                 </li>
 
+                <li class="has-sub">
 
+
+                    <a href="logout.php">
+                        <i class="fa fa-sign-out" style="font-size: 1.8em;"></i>
+                        <span class="title" style="font-size: 2em;"> Logout</span>
+                    </a>
+
+
+
+                </li>
 
 
             </ul>
@@ -289,43 +313,16 @@ if (isset($_SESSION['username'])) {
 
 
                 </li>
-                <li class="has-sub ">
-                    <a href="#">
-                        <i class="fa fa-plus-square" style="font-size: 1.8em;"></i>
-                        <span class="title" style="font-size: 1.8em;">Pharmacy</span>
-                    </a>
-                    <ul class="visible">
-                        <li class="has-sub">
-                            <a href="pos.php">
-                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 1.8em;"></i>
-                                <span class="title" style="font-size: 2em;"> POS</span>
-                            </a>
 
-                        </li>
-
-                        <li>
-                            <a href="record_drug.php">
-                                <i class="fa fa-plus-square" style="font-size: 1.5em;"></i>
-                                <span class="title" style="font-size: 1.5em;">Drug Inventory</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="record_product.php">
-                                <i class="fa fa-plus-square" style="font-size: 1.5em;"></i>
-                                <span class="title" style="font-size: 1.5em;">Product Inventory</span>
-                            </a>
-                        </li>
-
-
-
-                    </ul>
-                </li>
                 <li class="has-sub">
 
-                    <a href="drug_sales.php">
-                        <i class="fa fa-money" style="font-size: 1.8em;"></i>
-                        <span class="title" style="font-size: 2em;"> Drug Sales</span>
+
+                    <a href="logout.php">
+                        <i class="fa fa-sign-out" style="font-size: 1.8em;"></i>
+                        <span class="title" style="font-size: 2em;"> Logout</span>
                     </a>
+
+
 
                 </li>
             </ul>
@@ -371,6 +368,17 @@ if (isset($_SESSION['username'])) {
                     </ul>
 
                 </li>
+                <li class="has-sub">
+
+
+                    <a href="logout.php">
+                        <i class="fa fa-sign-out" style="font-size: 1.8em;"></i>
+                        <span class="title" style="font-size: 2em;"> Logout</span>
+                    </a>
+
+
+
+                </li>
 
 
             </ul>
@@ -412,7 +420,17 @@ if (isset($_SESSION['username'])) {
                     </ul>
                 </li>
 
+                <li class="has-sub">
 
+
+                    <a href="logout.php">
+                        <i class="fa fa-sign-out" style="font-size: 1.8em;"></i>
+                        <span class="title" style="font-size: 2em;"> Logout</span>
+                    </a>
+
+
+
+                </li>
 
 
 

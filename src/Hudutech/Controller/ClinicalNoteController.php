@@ -29,6 +29,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
         $complaintHistory = $clinicalNote->getComplaintHistory();
         $familySocialHistory = $clinicalNote->getFamilySocialHistory();
         $physicalExamination = $clinicalNote->getPhysicalExamination();
+        $diagnosis=$clinicalNote->getDiagnosis();
         $date = $clinicalNote->getDate();
 
         try{
@@ -39,6 +40,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
                                                 complaintHistory,
                                                 familySocialHistory,
                                                 physicalExamination,
+                                                diagnosis,
                                                 date
                                               )
                                      VALUES
@@ -48,6 +50,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
                                                 :complaintHistory,
                                                 :familySocialHistory,
                                                 :physicalExamination,
+                                                :diagnosis,
                                                 :date
                                             )";
 
@@ -57,6 +60,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
             $stmt->bindParam(":complaintHistory", $complaintHistory);
             $stmt->bindParam(":familySocialHistory", $familySocialHistory);
             $stmt->bindParam(":physicalExamination", $physicalExamination);
+            $stmt->bindParam(":diagnosis", $diagnosis);
             $stmt->bindParam(":date", $date);
 
             return $stmt->execute() ? true : false;
@@ -84,6 +88,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
         $complaintHistory = $clinicalNote->getComplaintHistory();
         $familySocialHistory = $clinicalNote->getFamilySocialHistory();
         $physicalExamination = $clinicalNote->getPhysicalExamination();
+        $diagnosis=$clinicalNote->getDiagnosis();
 
         try {
             $sql = "UPDATE clinical_notes SET
@@ -91,7 +96,9 @@ class ClinicalNoteController implements ClinicalNoteInterface
                                          complaint=:complaint,
                                          complaintHistory=:complaintHistory,
                                          familySocialHistory=:familySocialHistory,
-                                         physicalExamination=:physicalExamination";
+                                         physicalExamination=:physicalExamination,
+                                         diagnosis=:diagnosis
+                                         ";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(":id", $id);
             $stmt->bindParam(":patientId", $patientId);
@@ -99,6 +106,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
             $stmt->bindParam(":complaintHistory", $complaintHistory);
             $stmt->bindParam(":familySocialHistory", $familySocialHistory);
             $stmt->bindParam(":physicalExamination", $physicalExamination);
+            $stmt->bindParam(":diagnosis", $diagnosis);
             return $stmt->execute() ? true : false;
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
@@ -166,6 +174,7 @@ class ClinicalNoteController implements ClinicalNoteInterface
                        "complaintHistory"=>$row['complaintHistory'],
                        "familySocialHistory"=>$row['familySocialHistory'],
                        "physicalExamination"=>$row['physicalExamination'],
+                       "diagnosis"=>$row['diagnosis'],
                        "date"=>$row['date']
                    );
                    $notes[] = $note;

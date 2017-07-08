@@ -8,7 +8,7 @@ include __DIR__.'/includes/login.inc.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Heal | Login</title>
+    <title>I-clinic | Login</title>
     <?php include 'head_views.php'; ?>
 <style>
     .avator{

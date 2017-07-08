@@ -33,6 +33,26 @@ class ClinicalNote
      * @var string
      */
     private $physicalExamination;
+
+    /**
+     * @return \DateTime
+     */
+    public function getDiagnosis()
+    {
+        return $this->diagnosis;
+    }
+
+    /**
+     * @param \DateTime $diagnosis
+     */
+    public function setDiagnosis($diagnosis)
+    {
+        $this->diagnosis = $diagnosis;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $diagnosis;
     /**
      * @var \DateTime
      */

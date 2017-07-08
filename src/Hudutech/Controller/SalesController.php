@@ -461,7 +461,7 @@ class SalesController implements SalesInterface
         }
     }
 
-    public static function createReceipt($patientId, $receiptNo)
+    public static function createReceipt($patientId, $receiptNo,$procedureFee)
     {
         $db = new DB();
         $conn = $db->connect();
@@ -469,6 +469,7 @@ class SalesController implements SalesInterface
         $bill = self::getPatientBill($patientId, $receiptNo);
         $regFee = isset($bill['regFee']) ? $bill['regFee'] : null;
         $consultFee = isset($bill['consultationFee']) ? $bill['consultationFee'] : null;
+        $procedureFee = isset($procedureFee )? $procedureFee : null;
         $totalCost = $bill['totalCost'];
 
         try {
@@ -477,6 +478,7 @@ class SalesController implements SalesInterface
                                                                 receiptNo,
                                                                 consultationFee,
                                                                 regFee,
+                                                                procedureFee,
                                                                 totalCost
                                                               ) 
                                                             VALUES
@@ -485,12 +487,14 @@ class SalesController implements SalesInterface
                                                                 :receiptNo,
                                                                 :consultationFee,
                                                                 :regFee,
+                                                                :procedureFee,
                                                                 :totalCost
                                                             )");
             $stmt->bindParam(":patientId", $patientId);
             $stmt->bindParam(":receiptNo", $receiptNo);
             $stmt->bindParam(":consultationFee", $consultFee);
             $stmt->bindParam(":regFee", $regFee);
+            $stmt->bindParam(":procedureFee", $procedureFee);
             $stmt->bindParam(":totalCost", $totalCost);
             if ($stmt->execute()) {
                 if (!is_null($regFee)) {
