@@ -351,12 +351,7 @@ if (isset($_SESSION['username'])) {
                                 <span class="title" style="font-size: 1.5em;">Perform Test</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="test_results.php">
-                                <i class="fa fa-eye" style="font-size: 1.5em;"></i>
-                                <span class="title" style="font-size: 1.5em;">View Lab Test</span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="clinical_tests.php">
                                 <i class="fa fa-medkit" style="font-size: 1.5em;"></i>

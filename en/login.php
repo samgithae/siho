@@ -48,7 +48,7 @@ include __DIR__.'/includes/login.inc.php';
     <div class="login-header login-caret">
         <div class=" col-md-6 col-md-offset-3">
 
-            <img src="../public/assets/images/hospitalhand.jpg" class="avator"alt=""/>
+            <img src="../public/assets/images/hospitalhand.jpg" class="img-responsive avator" alt=""/>
 
 
         </div>
