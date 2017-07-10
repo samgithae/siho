@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 /**
  * Created by PhpStorm.
  * User: New LAptop

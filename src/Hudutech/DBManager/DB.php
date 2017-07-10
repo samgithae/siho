@@ -13,7 +13,7 @@ class DB
     /**
      * @var string
      */
-    private $databaseName = 'clinic_db';
+    private $databaseName = 'clinic_db2';
     /**
      * @var string
      */

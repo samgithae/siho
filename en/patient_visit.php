@@ -1,5 +1,6 @@
 <?php
 //error_reporting(0);
+
 /**
  * Created by PhpStorm.
  * User: hudutech
@@ -34,6 +35,8 @@
                                                placeholder="Search Patient by name, patient number, location, id number or phone number..."
                                                style="height: 45px;border: #1dcaff; border-style:solid; font-size: 16px;"
                                                id="searchText">
+
+                                        <button class="btn-info btn" value="search"  onchange="search()">search</button>
                                     </form>
                                 </fieldset>
                             </div>
@@ -102,7 +105,7 @@
 <script>
     function search() {
         $('#searchText').on('keyup', function (e) {
-            e.preventDefault;
+//            e.preventDefault;
             var text = $(this).val();
             var url = 'new_patient_visit_endpoint.php?q=' + text;
             $.ajax(
