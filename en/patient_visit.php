@@ -36,8 +36,9 @@
                                                style="height: 45px;border: #1dcaff; border-style:solid; font-size: 16px;"
                                                id="searchText">
 
+
                                         <button class="btn-info btn" value="search"  onchange="search()" style="margin-top: 10px;">search</button>
-                                    </form>
+                        </form>
                                 </fieldset>
                             </div>
                         </div>
@@ -106,6 +107,7 @@
     function search() {
         $('#searchText').on('keyup', function (e) {
            e.preventDefault;
+
             var text = $(this).val();
             var url = 'new_patient_visit_endpoint.php?q=' + text;
             $.ajax(

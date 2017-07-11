@@ -7,10 +7,12 @@
  */
 
 require_once __DIR__.'/../vendor/autoload.php';
+
 use Hudutech\Controller\PatientController;
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
     if(isset($_GET['q'])) {
         $patients = PatientController::searchNotInQueue($_GET['q']);
+
 //print_r($patients);
 
         if (sizeof($patients) == 0) {

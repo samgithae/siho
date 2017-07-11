@@ -14,6 +14,7 @@ class DB
      * @var string
      */
     private $databaseName = 'clinic_db';
+
     /**
      * @var string
      */
